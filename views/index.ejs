@@ -1,0 +1,23 @@
+<%- include("partials/head", { title: "Evaluasi Pintar" }) %>
+
+<section class="hero">
+  <h1>Evaluasi Pintar</h1>
+  <p class="muted">
+    Pilih jenis teks (total: <b><%= TEXT_TYPES.length %></b>), tempel tulisan, lalu nilai otomatis.
+  </p>
+</section>
+
+<section>
+  <h2 class="sectionTitle">Pilih Jenis Teks</h2>
+  <div class="grid">
+    <% TEXT_TYPES.forEach((t, idx) => { %>
+      <a class="card" href="/evaluate/<%= t.key %>">
+        <div class="cardTitle"><%= (idx + 1) + ". " + t.name %></div>
+        <div class="cardDesc"><%= t.desc %></div>
+        <div class="cardCta">Buka →</div>
+      </a>
+    <% }) %>
+  </div>
+</section>
+
+<%- include("partials/footer") %>

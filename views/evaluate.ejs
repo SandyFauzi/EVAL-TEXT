@@ -1,0 +1,76 @@
+<%- include("partials/head", { title: "Nilai - " + item.name }) %>
+
+<div class="crumbs">
+  <a href="/">← Kembali</a>
+  <span>/</span>
+  <span><%= item.name %></span>
+</div>
+
+<section class="panelHead">
+  <h1><%= item.name %></h1>
+  <p class="muted"><%= item.desc %></p>
+</section>
+
+<section class="twoCol">
+  <div class="box">
+    <div class="row">
+      <div class="label">Unggah file (.txt)</div>
+      <input id="fileInput" type="file" accept=".txt,text/plain" />
+    </div>
+
+    <div class="row">
+      <div class="label">Teks</div>
+      <textarea id="textInput" class="textarea" rows="16" placeholder="Tempel teks di sini..."></textarea>
+    </div>
+
+    <button id="btnNilai" class="btnPrimary" type="button" data-type="<%= item.key %>">
+      Nilai Teks
+    </button>
+
+    <div id="status" class="status muted"></div>
+  </div>
+
+  <div class="box">
+    <div class="resultTop">
+      <div>
+        <div class="label">Skor Akhir</div>
+        <div id="score" class="score">-</div>
+      </div>
+      <div class="barWrap">
+        <div id="bar" class="bar"></div>
+      </div>
+    </div>
+
+    <div class="resultGrid">
+      <div class="resultCard">
+        <div class="label">Benar</div>
+        <ul id="benar" class="list"></ul>
+      </div>
+      <div class="resultCard">
+        <div class="label">Kurang Tepat</div>
+        <ul id="kurang" class="list"></ul>
+      </div>
+      <div class="resultCard">
+        <div class="label">Perlu Diperbaiki</div>
+        <ul id="perlu" class="list"></ul>
+      </div>
+    </div>
+
+    <div class="resultCard">
+      <div class="label">Checklist Struktur</div>
+      <div id="strukturBox" class="checklist"></div>
+    </div>
+
+    <div class="resultCard">
+      <div class="label">Rincian Skor</div>
+      <div id="breakdownBox" class="breakdown"></div>
+    </div>
+
+    <div class="resultCard">
+      <div class="label">Perbaikan Otomatis (sederhana)</div>
+      <textarea id="autoFix" class="textarea" rows="10" readonly></textarea>
+    </div>
+  </div>
+</section>
+
+<%- include("partials/footer") %>
